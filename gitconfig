@@ -1,0 +1,21 @@
+[user]
+  name = Arthur Koziel
+  email = arthur@fyndiq.se
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+[push]
+  default = simple
+[core]
+  editor = vim
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
