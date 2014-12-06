@@ -46,3 +46,5 @@ eval `gdircolors $HOME/.dir_colors`
 # fzf (brew install fzf)
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 source ~/.fzf.zsh
+
+alias todo='$EDITOR ~/todo'
