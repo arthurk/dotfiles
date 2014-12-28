@@ -78,3 +78,7 @@ let g:syntastic_python_checkers=['flake8']
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx.conf if &ft == '' | setfiletype nginx | endif 
 " docker
 au BufNewFile,BufRead Dockerfile set filetype=dockerfile
+
+" Always show a gutter
+sign define dummy
+autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
