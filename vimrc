@@ -12,9 +12,12 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 " Plugin 'klen/python-mode'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/syntastic'
 " Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
+
+" Syntax Highlighting
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'jinfield/vim-nginx'
 Plugin 'honza/dockerfile.vim'
 
@@ -25,6 +28,13 @@ filetype plugin indent on
 set background=dark
 colorscheme solarized
 let g:airline_theme='solarized'
+
+" autocompletion for status line
+set wildmenu
+set wildmode=longest,list,full
+
+" Omni completion
+set omnifunc=syntaxcomplete#Complete
 
 set modeline
 set encoding=utf-8
@@ -39,7 +49,7 @@ set autoindent
 set smarttab
 set expandtab
 set background=dark
-set laststatus=2
+set laststatus=2 " always a status line
 set noshowmode
 set backspace=2
 set number
@@ -75,10 +85,13 @@ let g:syntastic_python_checkers=['flake8']
 
 " syntax highlighting
 " nginx
-au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx.conf if &ft == '' | setfiletype nginx | endif 
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx.conf if &ft == '' | setfiletype nginx | endif
 " docker
 au BufNewFile,BufRead Dockerfile set filetype=dockerfile
 
 " Always show a gutter
 sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+
+" highlighting for supervisord.conf
+autocmd BufRead,BufNewFile supervisord.conf setf dosini
