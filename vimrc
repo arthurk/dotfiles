@@ -15,11 +15,13 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
+Plugin 'rking/ag.vim'
 
 " Syntax Highlighting
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jinfield/vim-nginx'
 Plugin 'honza/dockerfile.vim'
+Plugin 'ConradIrwin/vim-bracketed-paste'
 
 call vundle#end()
 filetype plugin indent on
@@ -80,6 +82,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" map semicolon to colon
+nmap ; :
+
 " syntastic
 let g:syntastic_python_checkers=['flake8']
 
@@ -95,3 +100,4 @@ autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('
 
 " highlighting for supervisord.conf
 autocmd BufRead,BufNewFile supervisord.conf setf dosini
+
