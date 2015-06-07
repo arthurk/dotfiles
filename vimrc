@@ -37,9 +37,6 @@ let g:airline_theme='solarized'
 set wildmenu
 set wildmode=longest,list,full
 
-" Omni completion
-set omnifunc=syntaxcomplete#Complete
-
 set modeline
 set encoding=utf-8
 set nobackup
@@ -61,23 +58,6 @@ set number
 set undofile
 set undodir=$HOME/.vim/undo
 
-" python-mode
-let g:pymode_rope = 1
-let g:pymode_rope_completion = 0
-
-let g:pymode_folding = 0
-
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_cmd = "import ipdb; ipdb.set_trace()"
-let g:pymode_breakpoint_key = '<leader>b'
-
-let g:pymode_lint = 0
-
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -91,21 +71,15 @@ nmap ; :
 let g:syntastic_python_checkers=['flake8']
 
 " syntax highlighting
-" nginx
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx.conf if &ft == '' | setfiletype nginx | endif
-" docker
-au BufNewFile,BufRead Dockerfile set filetype=dockerfile
+au BufRead,BufNewFile Dockerfile set filetype=dockerfile
+au BufRead,BufNewFile *.service set filetype=systemd
 
 " Always show a gutter
 sign define dummy
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 
-" highlighting for supervisord.conf
-autocmd BufRead,BufNewFile supervisord.conf setf dosini
-
-au BufRead,BufNewFile *.service set filetype=systemd
-
-" Use ag for CtrlP
+" Ag for CtrlP
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
