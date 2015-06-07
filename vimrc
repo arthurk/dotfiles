@@ -9,19 +9,21 @@ set nowrap
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
-" Plugin 'klen/python-mode'
-Plugin 'scrooloose/syntastic'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-fugitive'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
 
 " Syntax Highlighting
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jinfield/vim-nginx'
-Plugin 'honza/dockerfile.vim'
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'honza/dockerfile.vim'
+Plugin 'jinfield/vim-nginx'
 
 call vundle#end()
 filetype plugin indent on
@@ -101,3 +103,16 @@ autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('
 " highlighting for supervisord.conf
 autocmd BufRead,BufNewFile supervisord.conf setf dosini
 
+au BufRead,BufNewFile *.service set filetype=systemd
+
+" Use ag for CtrlP
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+" PyMatcher for CtrlP
+if !has('python')
+  echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
