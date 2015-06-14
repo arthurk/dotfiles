@@ -9,6 +9,7 @@ set nowrap
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'tpope/vim-surround'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
@@ -16,6 +17,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
+Plugin 'Raimondi/delimitMate'
 
 " Syntax Highlighting
 Plugin 'ConradIrwin/vim-bracketed-paste'
