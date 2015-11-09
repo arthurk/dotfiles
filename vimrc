@@ -10,6 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'tpope/vim-surround'
+Plugin 'stephpy/vim-yaml'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
@@ -18,12 +19,12 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Syntax Highlighting
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'chase/vim-ansible-yaml'
 Plugin 'honza/dockerfile.vim'
 Plugin 'jinfield/vim-nginx'
 
@@ -76,6 +77,8 @@ let g:syntastic_python_checkers=['flake8']
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,nginx.conf if &ft == '' | setfiletype nginx | endif
 au BufRead,BufNewFile Dockerfile set filetype=dockerfile
 au BufRead,BufNewFile *.service set filetype=systemd
+au BufRead,BufNewFile *.cnf set syntax=dosini
+au BufRead,BufNewFile *.yaml,*.yml set filetype=yaml
 
 " Always show a gutter
 sign define dummy
@@ -92,3 +95,14 @@ if !has('python')
 else
   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
+
+" insert pdb trace
+map <Leader>i :call InsertLine()<CR>
+
+function! InsertLine()
+  let trace = expand("import ipdb; ipdb.set_trace()")
+  execute "normal o".trace
+endfunction
+
+set indentkeys-=<:>
+

@@ -34,11 +34,6 @@ unsetopt correct
 unsetopt HIST_VERIFY
 setopt no_share_history
 
-# boot2docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/arthurk/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 # use `ls` from coreutils (brew install coreutils)
 alias ls='/usr/local/bin/gls --color --group-directories-first'
 eval `gdircolors $HOME/.dir_colors`
@@ -49,3 +44,16 @@ source ~/.fzf.zsh
 
 # tmuxinator auto-completion
 source ~/sources/tmuxinator/completion/tmuxinator.zsh
+
+# custom
+alias v='vim'
+
+# docker-machine
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/arthurk/.docker/machine/machines/dev"
+export DOCKER_MACHINE_NAME="dev"
+
+alias dc="docker-compose"
+alias dcl="docker-compose logs"
+alias dm="docker-machine"
