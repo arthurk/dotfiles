@@ -2,7 +2,7 @@ set nocompatible
 filetype off " required for Vundle
 
 syntax on
-let mapleader=","
+let mapleader = "\<Space>"
 set nowrap
 
 " Vundle
@@ -20,6 +20,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'fatih/vim-go'
 
 " Syntax Highlighting
 Plugin 'ConradIrwin/vim-bracketed-paste'
@@ -31,6 +32,10 @@ Plugin 'jinfield/vim-nginx'
 call vundle#end()
 filetype plugin indent on
 " End Vundle
+
+" Save with <space>w
+nnoremap <Leader>w :w<CR>
+
 
 set background=dark
 colorscheme solarized
@@ -106,3 +111,16 @@ endfunction
 
 set indentkeys-=<:>
 
+" Go
+let g:go_fmt_command = "goimports"
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1

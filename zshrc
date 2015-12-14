@@ -57,3 +57,6 @@ export DOCKER_MACHINE_NAME="dev"
 alias dc="docker-compose"
 alias dcl="docker-compose logs"
 alias dm="docker-machine"
+
+# Go
+export GOPATH=~/gopackages
