@@ -42,13 +42,7 @@ eval `gdircolors $HOME/.dir_colors`
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 source ~/.fzf.zsh
 
-# tmuxinator auto-completion
-source ~/sources/tmuxinator/completion/tmuxinator.zsh
-
-# custom
-alias v='vim'
-
-# docker-machine
+# docker
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.100:2376"
 export DOCKER_CERT_PATH="/Users/arthurk/.docker/machine/machines/dev"
@@ -60,3 +54,7 @@ alias dm="docker-machine"
 
 # Go
 export GOPATH=~/gopackages
+
+# Google Cloud SDK
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
