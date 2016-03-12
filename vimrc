@@ -21,11 +21,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fatih/vim-go'
+Plugin 'morhetz/gruvbox'
+Plugin 'scrooloose/nerdcommenter'
 
 " Syntax Highlighting
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'honza/dockerfile.vim'
 Plugin 'jinfield/vim-nginx'
 
@@ -38,8 +41,8 @@ nnoremap <Leader>w :w<CR>
 
 
 set background=dark
-colorscheme solarized
-let g:airline_theme='solarized'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 
 " autocompletion for status line
 set wildmenu
@@ -124,3 +127,12 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" Mappings to access buffers
+" \b \f \g : go back/forward/last-used
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
