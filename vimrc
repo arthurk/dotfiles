@@ -1,9 +1,5 @@
-set nocompatible
 filetype off " required for Vundle
 
-syntax on
-let mapleader = "\<Space>"
-set nowrap
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -14,7 +10,7 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
@@ -23,6 +19,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fatih/vim-go'
 Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'mhinz/vim-startify'
 
 " Syntax Highlighting
 Plugin 'ConradIrwin/vim-bracketed-paste'
@@ -33,16 +30,25 @@ Plugin 'honza/dockerfile.vim'
 Plugin 'jinfield/vim-nginx'
 
 call vundle#end()
-filetype plugin indent on
 " End Vundle
+
+filetype plugin indent on
+set encoding=utf-8
+syntax on
+set nowrap
+set nocompatible
+
+let mapleader = "\<Space>"
 
 " Save with <space>w
 nnoremap <Leader>w :w<CR>
 
-
 set background=dark
 colorscheme gruvbox
+
 let g:airline_theme='gruvbox'
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_powerline_fonts = 0
 
 " autocompletion for status line
 set wildmenu
@@ -128,11 +134,12 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
 " Mappings to access buffers
 " \b \f \g : go back/forward/last-used
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 nnoremap <Leader>g :e#<CR>
+
+" Don't lose selection when shifting text in visual mode
+xnoremap < <gv
+xnoremap > >gv
