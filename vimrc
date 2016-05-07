@@ -20,6 +20,7 @@ Plugin 'fatih/vim-go'
 Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mhinz/vim-startify'
+Plugin 'wellle/targets.vim'
 
 " Syntax Highlighting
 Plugin 'ConradIrwin/vim-bracketed-paste'
@@ -32,6 +33,7 @@ Plugin 'jinfield/vim-nginx'
 call vundle#end()
 " End Vundle
 
+set term=screen-256color
 filetype plugin indent on
 set encoding=utf-8
 syntax on
@@ -80,9 +82,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" map semicolon to colon
-nmap ; :
 
 " syntastic
 let g:syntastic_python_checkers=['flake8']
@@ -139,7 +138,3 @@ let g:go_highlight_build_constraints = 1
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 nnoremap <Leader>g :e#<CR>
-
-" Don't lose selection when shifting text in visual mode
-xnoremap < <gv
-xnoremap > >gv

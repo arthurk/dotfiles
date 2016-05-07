@@ -30,6 +30,10 @@ bindkey '\e[A' up-line-or-beginning-search
 bindkey '\eOB' down-line-or-beginning-search
 bindkey '\e[B' down-line-or-beginning-search
 
+# vi mode
+#bindkey -v
+#export KEYTIMEOUT=1
+
 unsetopt correct
 unsetopt HIST_VERIFY
 setopt no_share_history
@@ -58,3 +62,13 @@ export GOPATH=~/gopackages
 # Google Cloud SDK
 source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+# brew
+alias buo="brew update && brew outdated"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
