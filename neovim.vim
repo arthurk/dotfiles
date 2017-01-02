@@ -1,0 +1,1 @@
+/Users/arthurk/.config/nvim/init.vim
