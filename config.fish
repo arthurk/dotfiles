@@ -1,1 +1,0 @@
-/Users/arthurkoziel/.config/fish/config.fish

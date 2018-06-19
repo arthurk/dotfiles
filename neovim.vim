@@ -1,1 +1,0 @@
-/Users/arthurkoziel/.config/nvim/init.vim
