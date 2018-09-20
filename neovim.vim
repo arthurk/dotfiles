@@ -12,6 +12,7 @@ if dein#load_state('/Users/arthurkoziel/.vim/bundles')
   call dein#add('sheerun/vim-polyglot') " language pack with syntax highlight and indentations
   call dein#add('scrooloose/nerdtree')
   call dein#add('dracula/vim')
+  call dein#add('seanyeh/gopher.vim')
 
   call dein#end()
   call dein#save_state()
@@ -41,6 +42,7 @@ set softtabstop=4
 
 " custom indent
 autocmd FileType make setlocal noet
+autocmd FileType gopher setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
 autocmd FileType go setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 
