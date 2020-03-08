@@ -1,9 +1,10 @@
 "dein Scripts-----------------------------
 
-set runtimepath+=/Users/arthurkoziel/.vim/bundles/repos/github.com/Shougo/dein.vim
-if dein#load_state('/Users/arthurkoziel/.vim/bundles')
-  call dein#begin('/Users/arthurkoziel/.vim/bundles')
-  call dein#add('/Users/arthurkoziel/.vim/bundles/repos/github.com/Shougo/dein.vim')
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   call dein#add('w0rp/ale')
   call dein#add('tpope/vim-commentary')
@@ -11,8 +12,6 @@ if dein#load_state('/Users/arthurkoziel/.vim/bundles')
   call dein#add('ntpeters/vim-better-whitespace') " highlight trailing whitespace
   call dein#add('sheerun/vim-polyglot') " language pack with syntax highlight and indentations
   call dein#add('scrooloose/nerdtree')
-  call dein#add('dracula/vim')
-  call dein#add('seanyeh/gopher.vim')
 
   call dein#end()
   call dein#save_state()
@@ -42,7 +41,6 @@ set softtabstop=4
 
 " custom indent
 autocmd FileType make setlocal noet
-autocmd FileType gopher setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
 autocmd FileType go setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 
@@ -75,8 +73,6 @@ autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('
 " Live substitution
 set inccommand=split
 
-map <Leader>b Oimport ipdb; ipdb.set_trace()
-
 " Format json documents
 com! FormatJSON %!jq '.'
 
@@ -97,8 +93,3 @@ set rtp+=/usr/local/opt/fzf
 map <C-n> :NERDTreeToggle<CR>
 " close vim if only window is nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-command WQ wq
-command Wq wq
-command W w
-command Q q

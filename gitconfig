@@ -33,4 +33,4 @@
 [pager]
   difftool = true
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
